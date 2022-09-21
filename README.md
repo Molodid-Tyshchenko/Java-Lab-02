@@ -1,2 +1,2 @@
 # Java-Lab-02
-Java Car 
+Java lab "Car" by Molodid Egor and Tyshchenko Nataliia DA-02
