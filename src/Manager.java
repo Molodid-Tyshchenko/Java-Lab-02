@@ -11,7 +11,7 @@ public class Manager {
     public Manager() {
         cars = new ArrayList<Car>();
         currentYear = 2022;
-
+        testCase();
         //(int id, Brand brand, String model,
         // int year, Color color, long prise, String registration)
     }
@@ -19,9 +19,9 @@ public class Manager {
     public void testCase() {
         cars.add(new Car(1, Brand.Audi, "XL900", 1900, Color.Black, 9_000000, "AK9000DK"));
         cars.add(new Car(2, Brand.BMV, "XX800", 1900, Color.Black, 10_000000, "AK9000DK"));
-        cars.add(new Car(3, Brand.Mercedes, "XL900", 1900, Color.Black, 11_000000, "AK9000DK"));
-        cars.add(new Car(4, Brand.Mercedes, "XL900", 1900, Color.Black, 6_000000, "AK9000DK"));
-        cars.add(new Car(5, Brand.Audi, "XL900", 1900, Color.Black, 15_000000, "AK9000DK"));
+        cars.add(new Car(3, Brand.Mercedes, "XL900", 2002, Color.Black, 11_000000, "AK9000DK"));
+        cars.add(new Car(4, Brand.Mercedes, "XL900", 2000, Color.Black, 6_000000, "AK9000DK"));
+        cars.add(new Car(5, Brand.Audi, "XL900", 1980, Color.Black, 15_000000, "AK9000DK"));
     }
 
     public static int intParse(){
@@ -35,17 +35,31 @@ public class Manager {
         }
     }
 
-    public static void displayByBrand(){
+    public void displayByBrand(){
         //brand
 
     }
-    public static void displayByModel(){
+    public void displayByModel(){
         //model
         // > n years
 
     }
-    public static void displayByYear(){
-        //year
-        // > prise
+    public void displayByYear(){
+        boolean displayed = false;
+        System.out.println("Show cars by year");
+        System.out.println("Enter year: ");
+        int year = intParse();
+        System.out.println("Enter prise: ");
+        int prise = intParse();
+        System.out.println("Cars made in year "+ year+ " that costed more than " + prise);
+        for (var item: cars) {
+            if(item.getYear() == year && item.getPrise() > prise){
+                item.DisplayInfo();
+                displayed = true;
+            }
+        }
+        if(!displayed) {
+            System.out.println("No cars was found with the current filter");
+        }
     }
 }

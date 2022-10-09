@@ -74,5 +74,6 @@ public class Car {
         System.out.println("Year:" + this.year);
         System.out.println("Prise:" + this.prise);
         System.out.println("Registration number:" + this.registration);
+        System.out.println();
     }
 }
