@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Scanner;
 import java.time.LocalDate;
@@ -13,11 +14,11 @@ public class Manager {
     }
 
     public void testCase() {
-        cars.add(new Car(1, Brand.Audi, "XL900", 1900, Color.Black, 9_000_000, "AK9000DK"));
+        cars.add(new Car(1, Brand.AUDI, "XL900", 1900, Color.Black, 9_000_000, "AK9000DK"));
         cars.add(new Car(2, Brand.BMV, "XX800", 1900, Color.Black, 10_000_000, "AA4586DB"));
-        cars.add(new Car(3, Brand.Mercedes, "XL901", 2002, Color.Black, 11_000_000, "AK2031KD"));
-        cars.add(new Car(4, Brand.Mercedes, "XL920", 2000, Color.Black, 6_000_000, "BK9785DH"));
-        cars.add(new Car(5, Brand.Audi, "XL700", 1980, Color.Black, 15_000_000, "AK2479DK"));
+        cars.add(new Car(3, Brand.MERCEDES, "XL901", 2002, Color.Black, 11_000_000, "AK2031KD"));
+        cars.add(new Car(4, Brand.MERCEDES, "XL920", 2000, Color.Black, 6_000_000, "BK9785DH"));
+        cars.add(new Car(5, Brand.AUDI, "XL700", 1980, Color.Black, 15_000_000, "AK2479DK"));
     }
 
     public void start() {
@@ -64,17 +65,16 @@ public class Manager {
     public static Brand brandParse() {
         try{
             Scanner scanner = new Scanner(System.in);
-            return Brand.valueOf(scanner.nextLine());
+            return Brand.valueOf(scanner.nextLine().toUpperCase(Locale.ROOT));
         }
         catch(Exception exception) {
             System.out.println("The value is incorrect!");
             return brandParse();
         }
     }
-
-    public static String stringParse() {
+    public static String modelParse() {
         Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
+        return scanner.nextLine().toUpperCase(Locale.ROOT);
     }
 
     public void displayByBrand(){
@@ -100,7 +100,7 @@ public class Manager {
         boolean displayed = false;
         System.out.println("Show cars by model");
         System.out.println("Enter model: ");
-        String model = stringParse();
+        String model = modelParse();
         System.out.println("Enter the number years of operation: ");
         int yearsCounter = intParse();
         int yearsDifference = 0;

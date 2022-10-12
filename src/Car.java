@@ -1,13 +1,13 @@
 enum Brand {
-    Volvo,
-    Mercedes,
-    Audi,
-    Toyota,
-    Volkswagen,
+    VOLVO,
+    MERCEDES,
+    AUDI,
+    TOYOTA,
+    VOLKSWAGEN,
     BMV,
-    Renault,
-    Citroen,
-    Skoda
+    RENAULT,
+    CITROEN,
+    SKODA
 }
 
 enum Color{
